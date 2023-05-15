@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <artifactId>springBootDemo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.att.course.spring</groupId>
+        <artifactId>springDemo</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+       <dependency>           
+       		<groupId>org.springframework.boot</groupId>           
+       		<artifactId>spring-boot-starter</artifactId>       
+       	</dependency>
+
+        <dependency>
+            <groupId>com.att.course.spring</groupId>
+            <artifactId>components</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>
