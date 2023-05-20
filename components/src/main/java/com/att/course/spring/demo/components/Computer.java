@@ -7,10 +7,10 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class Computer {
-    private CentralProcessingUnit centralProcessingUnit;
-    private GraphicsCard graphicsCard;
-    private ComputerCooler cooler;
-    private RandomAccessMemory randomAccessMemory;
+    private final CentralProcessingUnit centralProcessingUnit;
+    private final GraphicsCard graphicsCard;
+    private final ComputerCooler cooler;
+    private final RandomAccessMemory randomAccessMemory;
 
     public Computer(CentralProcessingUnit centralProcessingUnit,
                     GraphicsCard graphicsCard,
