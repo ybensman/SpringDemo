@@ -32,7 +32,7 @@ public class ComputerCPUConfig {
     }
 
 //    @Bean
-//    AirCooler fan() {
+//    ComputerCooler fan() {
 //        return new AirCooler();
 //    }
 }
