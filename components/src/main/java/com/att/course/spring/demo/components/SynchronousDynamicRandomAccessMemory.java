@@ -8,6 +8,6 @@ public class SynchronousDynamicRandomAccessMemory implements RandomAccessMemory 
     }
 
     public void write(int numberOfBytes) {
-        System.out.println("Writing");
+        System.out.println("SDRAM: Writing");
     }
 }
