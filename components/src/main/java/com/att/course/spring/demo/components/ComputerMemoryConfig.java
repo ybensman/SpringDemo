@@ -6,12 +6,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ComputerMemoryConfig {
     @Bean("SDRAM")
-    SynchronousDynamicRandomAccessMemory synchronousDynamicRandomAccessMemory() {
+    RandomAccessMemory synchronousDynamicRandomAccessMemory() {
         return new SynchronousDynamicRandomAccessMemory(8192); // MBit
     }
 
     @Bean("SGRAM")
-    SynchronousGraphicsRandomAccessMemory synchronousGraphicsRandomAccessMemory() {
+    RandomAccessMemory synchronousGraphicsRandomAccessMemory() {
         return new SynchronousGraphicsRandomAccessMemory(4096); // MBit
     }
 }

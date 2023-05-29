@@ -2,9 +2,9 @@ package com.att.course.spring.demo.components;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("liquid")
 public class LiquidCooler implements ComputerCooler {
     public void cool() {
-        System.out.println("Liquid cooler");
+        System.out.println("Liquid cooler: chill");
     }
 }
