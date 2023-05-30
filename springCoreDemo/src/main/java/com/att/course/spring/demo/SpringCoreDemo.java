@@ -35,13 +35,15 @@ public class SpringCoreDemo {
         GraphicsCard graphicsCard = ctx.getBean(GraphicsCard.class);
         graphicsCard.generateImage();
 
-        ComputerCooler computerCooler = ctx.getBean(AirCooler.class);
+        ComputerCooler airCooler = (ComputerCooler) ctx.getBean("fan");
+        ComputerCooler liquidCooler = (ComputerCooler) ctx.getBean("liquid");
+
         CentralProcessingUnit centralProcessingUnit = ctx.getBean(IntelCentralProcessingUnit.class);
 
         RandomAccessMemory ram = (RandomAccessMemory) ctx.getBean("SDRAM");
     //    RandomAccessMemory ram = ctx.getBean(SynchronousDynamicRandomAccessMemory.class);
 
-        Computer computer = new Computer(centralProcessingUnit, graphicsCard, ram, computerCooler);
+        Computer computer = new Computer(centralProcessingUnit, graphicsCard, ram, airCooler, liquidCooler);
         computer.start();
 
         return computer;
