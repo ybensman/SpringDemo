@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NVidiaGraphicsCard implements GraphicsCard {
+public class NVidiaGraphicsCard implements GraphicsCardInterface {
 
     @Autowired
     @Qualifier("NVidiaGPU")

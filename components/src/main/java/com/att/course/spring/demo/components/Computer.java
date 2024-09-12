@@ -7,29 +7,32 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class Computer {
-    private final CentralProcessingUnit centralProcessingUnit;
-    private final GraphicsCard graphicsCard;
-    private final ComputerCooler cooler1;
-    private final ComputerCooler cooler2;
+    private final PowerSupplyUnitInterface psu;
+    private final CentralProcessingUnitInterface centralProcessingUnit;
+    private final GraphicsCardInterface graphicsCard;
+    private final RandomAccessMemoryInterface randomAccessMemory;
+    private final ComputerCoolerInterface cooler1;
+    private final ComputerCoolerInterface cooler2;
 
-    private final RandomAccessMemory randomAccessMemory;
-
-    public Computer(CentralProcessingUnit centralProcessingUnit,
-                    GraphicsCard graphicsCard,
-                    @Qualifier("SDRAM") RandomAccessMemory randomAccessMemory,
-                    ComputerCooler fan,
-                    ComputerCooler liquid) {
+    public Computer(PowerSupplyUnitInterface psu,
+                    CentralProcessingUnitInterface centralProcessingUnitInterface,
+                    GraphicsCardInterface graphicsCardInterface,
+                    @Qualifier("SamsungSDRAM") RandomAccessMemoryInterface randomAccessMemory,
+                    ComputerCoolerInterface fan,
+                    ComputerCoolerInterface liquid) {
         System.out.println("Computer constructor...");
-        this.centralProcessingUnit = centralProcessingUnit;
-        this.graphicsCard = graphicsCard;
+        this.psu = psu;
+        this.centralProcessingUnit = centralProcessingUnitInterface;
+        this.graphicsCard = graphicsCardInterface;
         this.cooler1 = fan;
         this.cooler2 = liquid;
         this.randomAccessMemory = randomAccessMemory;
     }
 
-    //@PostConstruct
+    @PostConstruct
     public void start() {
         System.out.println("Starting computer...");
+        psu.turnOn();
         centralProcessingUnit.start();
         cooler1.cool();
         cooler2.cool();

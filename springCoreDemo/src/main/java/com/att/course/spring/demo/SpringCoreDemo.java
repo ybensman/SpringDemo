@@ -13,37 +13,39 @@ public class SpringCoreDemo {
         Computer computer = ctx.getBean(Computer.class);
         computer.start();
 
-//        testDifferentContexts();
+        testDifferentContexts();
 //        createComputer(ctx);
     }
 
     private static void testDifferentContexts() {
         AnnotationConfigApplicationContext ctx1 =
                 new AnnotationConfigApplicationContext(ComputerCPUConfig.class);
-        CentralProcessingUnit centralProcessingUnit1 = ctx1.getBean(IntelCentralProcessingUnit.class);
+        CentralProcessingUnitInterface centralProcessingUnit1 = ctx1.getBean(IntelCentralProcessingUnit.class);
 
         AnnotationConfigApplicationContext ctx2 =
                 new AnnotationConfigApplicationContext(ComputerMemoryConfig.class);
-        RandomAccessMemory randomAccessMemory = (RandomAccessMemory) ctx2.getBean("SDRAM");
+        RandomAccessMemoryInterface randomAccessMemory = (RandomAccessMemoryInterface) ctx2.getBean("SamsungSDRAM");
     }
 
     private static Computer createComputer(ApplicationContext ctx) {
 
-//        GraphicsProcessingUnit gpu = (GraphicsProcessingUnit) ctx.getBean("NVidiaGPU");
-//        gpu.render();
+        GraphicsProcessingUnit gpu = (GraphicsProcessingUnit) ctx.getBean("NVidiaGPU");
+        gpu.render();
 
-        GraphicsCard graphicsCard = ctx.getBean(GraphicsCard.class);
+        PowerSupplyUnitInterface psu = ctx.getBean(PowerSupplyUnitInterface.class);
+
+        GraphicsCardInterface graphicsCard = ctx.getBean(GraphicsCardInterface.class);
         graphicsCard.generateImage();
 
-        ComputerCooler airCooler = (ComputerCooler) ctx.getBean("fan");
-        ComputerCooler liquidCooler = (ComputerCooler) ctx.getBean("liquid");
+        ComputerCoolerInterface airCooler = (ComputerCoolerInterface) ctx.getBean("fan");
+        ComputerCoolerInterface liquidCooler = (ComputerCoolerInterface) ctx.getBean("liquid");
 
-        CentralProcessingUnit centralProcessingUnit = ctx.getBean(IntelCentralProcessingUnit.class);
+        CentralProcessingUnitInterface centralProcessingUnit = ctx.getBean(IntelCentralProcessingUnit.class);
 
-        RandomAccessMemory ram = (RandomAccessMemory) ctx.getBean("SDRAM");
-    //    RandomAccessMemory ram = ctx.getBean(SynchronousDynamicRandomAccessMemory.class);
+        RandomAccessMemoryInterface ram = (RandomAccessMemoryInterface) ctx.getBean("SamsungSDRAM");
+    //    RandomAccessMemoryInterface ram = ctx.getBean(SamsungRandomAccessMemory.class);
 
-        Computer computer = new Computer(centralProcessingUnit, graphicsCard, ram, airCooler, liquidCooler);
+        Computer computer = new Computer(psu, centralProcessingUnit, graphicsCard, ram, airCooler, liquidCooler);
         computer.start();
 
         return computer;

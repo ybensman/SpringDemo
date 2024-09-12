@@ -2,7 +2,7 @@ package com.att.course.spring.demo.components;
 
 import java.util.List;
 
-public class IntelCentralProcessingUnit implements CentralProcessingUnit {
+public class IntelCentralProcessingUnit implements CentralProcessingUnitInterface {
     private ArithmeticLogicUnit alu;
     private List<ProcessorRegister> registersList;
     private ControlUnit cu;

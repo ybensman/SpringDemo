@@ -5,13 +5,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ComputerMemoryConfig {
-    @Bean("SDRAM")
-    RandomAccessMemory synchronousDynamicRandomAccessMemory() {
-        return new SynchronousDynamicRandomAccessMemory(8192); // MBit
+    @Bean("SamsungSDRAM")
+    RandomAccessMemoryInterface samsungRandomAccessMemory() {
+        return new SamsungRandomAccessMemory(8192); // MBit
     }
 
-    @Bean("SGRAM")
-    RandomAccessMemory synchronousGraphicsRandomAccessMemory() {
-        return new SynchronousGraphicsRandomAccessMemory(4096); // MBit
+    @Bean("MicronRAM")
+    RandomAccessMemoryInterface micronRandomAccessMemory() {
+        return new MicronRandomAccessMemory(4096); // MBit
     }
 }

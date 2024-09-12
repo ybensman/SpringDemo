@@ -5,7 +5,7 @@ public class ProcessorRegister {
         NUMERIC_DATA,
         FLOATING_DATA,
         ADDRESS
-    };
+    }
 
     private ProcessorRegisterType processorRegisterType;
 

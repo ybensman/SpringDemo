@@ -31,6 +31,16 @@ public class ComputerCPUConfig {
         return new IntelCentralProcessingUnit(arithmeticLogicUnit(), processorRegisterList(), controlUnit());
     }
 
+//    @Bean("IntelCPU")
+//    CentralProcessingUnit intelCentralProcessingUnit() {
+//        return new IntelCentralProcessingUnit(arithmeticLogicUnit(), processorRegisterList(), controlUnit());
+//    }
+
+//    @Bean("AmdCPU")
+//    CentralProcessingUnit amdCentralProcessingUnit() {
+//        return new AmdCentralProcessingUnit();
+//    }
+
 //    @Bean
 //    ComputerCooler fan() {
 //        return new AirCooler();
