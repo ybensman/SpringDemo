@@ -13,10 +13,11 @@ public class SpringCoreDemo {
         Computer computer = ctx.getBean(Computer.class);
         computer.start();
 
-        testDifferentContexts();
+//        testDifferentContexts();
 //        createComputer(ctx);
     }
 
+/*
     private static void testDifferentContexts() {
         AnnotationConfigApplicationContext ctx1 =
                 new AnnotationConfigApplicationContext(ComputerCPUConfig.class);
@@ -26,7 +27,7 @@ public class SpringCoreDemo {
                 new AnnotationConfigApplicationContext(ComputerMemoryConfig.class);
         RandomAccessMemoryInterface randomAccessMemory = (RandomAccessMemoryInterface) ctx2.getBean("SamsungSDRAM");
     }
-
+*/
     private static Computer createComputer(ApplicationContext ctx) {
 
         GraphicsProcessingUnit gpu = (GraphicsProcessingUnit) ctx.getBean("NVidiaGPU");

@@ -1,11 +1,7 @@
 package com.att.course.spring.demo.components;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 
-@Component
 public class Computer {
     private final PowerSupplyUnitInterface psu;
     private final CentralProcessingUnitInterface centralProcessingUnit;
@@ -17,7 +13,7 @@ public class Computer {
     public Computer(PowerSupplyUnitInterface psu,
                     CentralProcessingUnitInterface centralProcessingUnitInterface,
                     GraphicsCardInterface graphicsCardInterface,
-                    @Qualifier("SamsungSDRAM") RandomAccessMemoryInterface randomAccessMemory,
+                    RandomAccessMemoryInterface randomAccessMemory,
                     ComputerCoolerInterface fan,
                     ComputerCoolerInterface liquid) {
         System.out.println("Computer constructor...");
