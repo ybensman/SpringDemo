@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ComputerMemoryConfig {
-    @Bean("SamsungSDRAM")
+    @Bean
     RandomAccessMemoryInterface samsungRandomAccessMemory() {
         return new SamsungRandomAccessMemory(8192); // MBit
     }
