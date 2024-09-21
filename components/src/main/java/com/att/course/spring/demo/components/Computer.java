@@ -1,6 +1,6 @@
 package com.att.course.spring.demo.components;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 public class Computer {
     private final PowerSupplyUnitInterface psu;
