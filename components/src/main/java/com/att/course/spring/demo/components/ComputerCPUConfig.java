@@ -3,7 +3,6 @@ package com.att.course.spring.demo.components;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -11,7 +10,7 @@ public class ComputerCPUConfig {
 
     @Bean
     public List<ProcessorRegister> processorRegisterList() {
-        return Arrays.asList(new ProcessorRegister(ProcessorRegister.ProcessorRegisterType.NUMERIC_DATA),
+        return List.of(new ProcessorRegister(ProcessorRegister.ProcessorRegisterType.NUMERIC_DATA),
                 new ProcessorRegister(ProcessorRegister.ProcessorRegisterType.FLOATING_DATA),
                 new ProcessorRegister(ProcessorRegister.ProcessorRegisterType.ADDRESS));
     }
