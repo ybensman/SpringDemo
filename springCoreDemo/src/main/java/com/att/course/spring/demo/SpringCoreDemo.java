@@ -22,10 +22,13 @@ public class SpringCoreDemo {
         AnnotationConfigApplicationContext ctx1 =
                 new AnnotationConfigApplicationContext(ComputerCPUConfig.class);
         CentralProcessingUnitInterface centralProcessingUnit1 = ctx1.getBean(IntelCentralProcessingUnit.class);
+        CentralProcessingUnitInterface centralProcessingUnit2 = (CentralProcessingUnitInterface)
+                ctx1.getBean("intelCentralProcessingUnit");
 
         AnnotationConfigApplicationContext ctx2 =
                 new AnnotationConfigApplicationContext(ComputerMemoryConfig.class);
-        RandomAccessMemoryInterface randomAccessMemory = (RandomAccessMemoryInterface) ctx2.getBean("SamsungSDRAM");
+        RandomAccessMemoryInterface micronRAM = (RandomAccessMemoryInterface) ctx2.getBean("MicronRAM");
+        RandomAccessMemoryInterface samsungRAM = (RandomAccessMemoryInterface) ctx2.getBean("samsungRandomAccessMemory");
     }
 */
     private static Computer createComputer(ApplicationContext ctx) {
@@ -34,6 +37,7 @@ public class SpringCoreDemo {
         gpu.render();
 
         PowerSupplyUnitInterface psu = ctx.getBean(PowerSupplyUnitInterface.class);
+        PowerSupplyUnitInterface deltaPowerSupplyUnit = (PowerSupplyUnitInterface) ctx.getBean("deltaPowerSupplyUnit");
 
         GraphicsCardInterface graphicsCard = ctx.getBean(GraphicsCardInterface.class);
         graphicsCard.generateImage();
@@ -43,10 +47,11 @@ public class SpringCoreDemo {
 
         CentralProcessingUnitInterface centralProcessingUnit = ctx.getBean(IntelCentralProcessingUnit.class);
 
-        RandomAccessMemoryInterface ram = (RandomAccessMemoryInterface) ctx.getBean("SamsungSDRAM");
-    //    RandomAccessMemoryInterface ram = ctx.getBean(SamsungRandomAccessMemory.class);
+        RandomAccessMemoryInterface samsungRAM = (RandomAccessMemoryInterface) ctx.getBean("samsungRandomAccessMemory");
+        RandomAccessMemoryInterface micronRAM = (RandomAccessMemoryInterface) ctx.getBean("MicronRAM");
+        RandomAccessMemoryInterface anotherSamsungRAM = ctx.getBean(SamsungRandomAccessMemory.class);
 
-        Computer computer = new Computer(psu, centralProcessingUnit, graphicsCard, ram, airCooler, liquidCooler);
+        Computer computer = new Computer(psu, centralProcessingUnit, graphicsCard, samsungRAM, airCooler, liquidCooler);
         computer.start();
 
         return computer;
